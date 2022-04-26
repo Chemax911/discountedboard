@@ -1,0 +1,35 @@
+{% extends "registration/account__col-1.html" %}
+{% load static %}
+
+{% block head_title %}
+Invalid verify | {{ block.super }}
+{% endblock head_title %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb v3">
+        <li><a href="#">Home</a></li>
+        <li class="active">My Account</li>
+    </ul>
+{% endblock breadcrumb %}
+
+{% block messages %}
+{% endblock messages %}
+
+{% block content %}
+    <div class="row flex pd">
+        <div class="account-element bd-7">
+            <div class="cmt-title text-center abs">
+                <h1 class="page-title v1">Invalid verify</h1>
+            </div>
+            <div class="page-content">
+                <h4>
+                    Здравствуйте {{ user.username }}!
+                </h4>
+                <p>
+                    Ваша ссылка не корректна, залогиньтесь снова
+                </p>
+                <a href="{% url 'login' %}" class="btn btn-submit btn-gradient">Login</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

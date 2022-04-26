@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>{% block head_title %}Discount - каталог уцененных товаров и цен в интернет-магазинах{% endblock head_title %}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}" type="image/png">
+    <!-- Plugins CSS -->
+    {% include 'inc/__plugins-css.html' %}
+    {% block link %}
+    {% endblock link %}
+    <!-- Default CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+</head>
+
+<body>
+    <!-- push menu-->
+    {% include 'inc/__pushmenu.html' %}
+    <!-- end push menu-->
+    <div class="wrappage">
+        <header id="header" class="header-v4">
+           {% include 'inc/header/__header-top-banner.html' %}
+           {% include 'inc/header/__topbar.html' %}
+           {% include 'inc/header/__header-center.html' %}
+           {% include 'inc/header/__header-bottom.html' %}
+           {% include 'inc/header/__header-cate.html' %}
+        </header>
+        <!-- /header -->
+        <!-- content -->
+        {% block container %}
+
+        {% endblock container %}
+        <!-- e-category  -->
+        {% include 'inc/__category.html' %}
+        <!-- feature -->
+        {% include 'inc/__feature.html' %}
+        <!-- /content -->
+        <footer>
+            {% include 'inc/__footer-top.html' %}
+            {% include 'inc/__footer-bottom.html' %}
+        </footer>
+        <!-- /footer -->
+        <!-- /footer -->
+    </div>
+    <!-- Plugin JS -->
+    <script src="{% static 'assets/js/jquery.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/countdown.js' %}"></script>
+    <!-- Main JS -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

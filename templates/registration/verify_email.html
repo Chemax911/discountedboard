@@ -1,0 +1,83 @@
+{% load i18n %}{% autoescape off %}
+
+{% trans 'Здравствуйте' %} {{ user.get_username }}!
+{% trans 'Пожалуйста перейдите по ссылке чтобы закончить регистрацию' %}
+
+http://{{ domain }}{% url 'verify_email' uidb64=uid token=token %}
+
+{% translate 'Спасибо за использование нашего сайта!' %}
+{% trans 'Команда' %} {{ site_name }}
+
+{% endautoescape %}
+
+{% comment %}
+    {% load i18n %}{% autoescape off %}
+
+    {% extends "base.html" %}
+    {% load static i18n %}{% autoescape off %}
+
+    {% block head_link %}
+    {% endblock head_link %}
+
+    {% block head_title %}
+        {% trans 'Verify Email' %} | {{ block.super }}
+    {% endblock head_title %}
+
+    {% block class %}class="main"{% endblock class %}
+
+    {% block breadcrumb %}
+    <div class="crumbs">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- Start of Page Title -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="crumbs__content">
+                        <h1 class="title__text">{% trans 'My account' %}</h1>
+                    </div>
+                </div>
+                <!-- End of Page Title -->
+
+                <!-- Start of Breadcrumb -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <ul class="crumbs__nav">
+                        <li>
+                            <a href="{% url 'home_view' %}">
+                                <i class="fa-light fa-house"></i> {% trans 'Home' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">{% trans 'My account' %}</a>
+                        </li>
+                        <li>
+                            {% trans 'Verify Email' %}
+                        </li>
+                    </ul>
+                </div>
+                <!-- End of Breadcrumb -->
+
+            </div>
+        </div>
+    </div>
+    {% endblock breadcrumb %}
+
+    {% block content %}
+    <div class="page-content become-a-vendor">
+        <div class="container few-fees mt-10 mb-2 mb-lg-10 pt-2 pt-lg-9">
+            <h4 class="text-center text-primary text-capitalize font-weight-bold ls-25">
+                {% trans 'Здравствуйте' %} {{ user.get_username }}!
+            </h4>
+            <h4 class="title title-center mb-3">
+                {% trans 'Пожалуйста перейдите по ссылке чтобы закончить регистрацию' %}
+            </h4>
+            <p class="text-center mb-2 mb-lg-10">
+                http://{{ domain }}{% url 'verify_email' uidb64=uid token=token %}
+            </p>
+            <p class="text-center mb-2 mb-lg-10">
+                {% trans 'Команда' %} {{ site_name }}
+            </p>
+        </div>
+        <!-- End of Container -->
+    </div>
+    {% endblock content %}{% endautoescape %}
+{% endcomment %}

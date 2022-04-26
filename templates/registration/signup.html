@@ -1,0 +1,74 @@
+{% extends 'registration/account__col-1.html' %}
+{% load static %}
+
+{% block head_title %}
+Sign Up | {{ block.super }}
+{% endblock head_title %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb v3">
+        <li><a href="#">Home</a></li>
+        <li class="active">My Account</li>
+    </ul>
+{% endblock breadcrumb %}
+
+{% block messages %}
+    {% if messages %}
+    <div>
+        <ul>
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+{% endblock messages %}
+
+{% block content %}
+<div class="row flex pd">
+    <div class="account-element bd-7">
+        <div class="cmt-title text-center abs">
+            <h1 class="page-title v1">Register</h1>
+        </div>
+        <div class="page-content">
+            <p>Create your very own account</p>
+            <form class="login-form" method="post" action="{% url 'signup' %}">
+                {% csrf_token %} 
+                <div class="form-group">
+                    <label>Email address <span class="f-red">*</span></label>
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                    <label>Username <span class="f-red">*</span></label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                    <label>Password <span class="f-red">*</span></label>
+                    {{ form.password1 }}
+                    {{ form.password1.errors }}
+                    <label>Password confirmation <span class="f-red">*</span></label>
+                    {{ form.password2 }}
+                    {{ form.password2.rrors }}
+                </div>
+                <p>
+                    Your personal data will be used to support your experience 
+                    throughout this website, to manage access to your account, 
+                    and for other purposes described in our 
+                    <a href="login.html#" class="text-primary">privacy policy</a>.
+                </p>
+                <div class="flex lr">
+                    <button type="submit" class="btn btn-submit btn-gradient">Register</button>
+                    <div class="checkbox checkbox-default">
+                        <input id="remember" type="checkbox" value="yes" class="">
+                        <label for="remember"><span class="chk-span" tabindex="2"></span>I accept the terms of use</label>
+                    </div>
+                </div>
+            </form>
+            <a href="{% url 'login' %}" class="btn-lostpwd spc">Sign in</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

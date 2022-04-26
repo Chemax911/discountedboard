@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_title %}
+    {{ block.super }}
+{% endblock head_title %}
+
+{% block container %}
+    <!-- Category -->
+    {% include 'pages/inc/__category-list.html' %}
+    <!-- End Category -->
+    <!-- More product -->
+    {% include 'pages/inc/__more-product.html' %}
+    <!-- End product -->
+    <!-- Product tab -->
+    {% include 'pages/inc/__product-tab.html' %}
+    <!-- End Product -->
+    <!-- Our blog -->
+    {% include 'pages/inc/__our-blog.html' %}
+    <!-- End blog -->
+{% endblock container %}
